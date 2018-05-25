@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+    <color name="white">#FFFFFF</color>
+    <color name="white_trans">#99FFFFFF</color>
+
+    <color name="button_navigation_buttons_gradient_startcolor">#F9F9F9</color>
+    <color name="button_navigation_buttons_gradient_centercolor">#F9F9F9</color>
+    <color name="button_navigation_buttons_gradient_endcolor">#F9F9F9</color>
+
+    <color name="status_bar_color">#929292</color>
+
+    <color name="main_activity_backgroud_gradient_startcolor">#80D8DBDA</color>
+    <color name="main_activity_backgroud_gradient_centercolor">#80BABEBA</color>
+    <color name="main_activity_backgroud_gradient_endcolor">#807D7D7D</color>
+
+    <color name="blue_pressed">#007AFF</color>
+    <color name="gray_unpressed">#929292</color>
+
+    <color name="above_tab_bar_shadow">#B2B2B2</color>
+</resources>

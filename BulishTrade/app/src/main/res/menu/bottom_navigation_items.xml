@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/action_item1"
+        android:icon="@drawable/ic_tops_icon"
+        android:title="@string/tab_top_markets"/>
+    <item
+        android:id="@+id/action_item2"
+        android:icon="@drawable/ic_most_active_icon"
+        android:title="@string/tab_most_active"/>
+    <item
+        android:id="@+id/action_item3"
+        android:icon="@drawable/ic_gainers_icon"
+        android:title="@string/tab_gainers"/>
+    <item
+        android:id="@+id/action_item4"
+        android:icon="@drawable/ic_losers_icon"
+        android:title="@string/tab_losers"/>
+    <item
+        android:id="@+id/action_item5"
+        android:icon="@drawable/ic_portfolio_icon"
+        android:title="@string/tab_portfolio"/>
+</menu>

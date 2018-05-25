@@ -1,0 +1,10 @@
+<resources>
+    <string name="app_name">BulishTrade</string>
+
+    <string name="tab_gainers">Gainers</string>
+    <string name="tab_losers">Losers</string>
+    <string name="tab_most_active">Active</string>
+    <string name="tab_portfolio">Portfolio</string>
+    <string name="tab_top_markets">Tops</string>
+
+</resources>
