@@ -6,8 +6,8 @@ import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import com.example.dennisshar.bulishtrade.R;
 
-import celsius.a360.com.bulishtrade.R;
 
 public class FragmentGainers extends Fragment {
 

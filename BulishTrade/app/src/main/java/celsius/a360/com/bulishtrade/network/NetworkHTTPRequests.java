@@ -15,31 +15,28 @@ public class NetworkHTTPRequests {
     }
 
 
-    public String getTopMArketsApiURL(){
+    public String getTopMArketsApiUrlResponce(){
         String responce = null;
         String url = networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getTopMarketsApiUrl();
         responce = networkHTTPConnection.getHttp(url);
         return responce;
     }
 
-    public String getMosActiveMArketsApiURL(){
+    public String getMosActiveMArketsApiURLResponce(){
         String responce = null;
         String url = networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getMostActiveApiUrl();
         responce = networkHTTPConnection.getHttp(url);
-        return networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getMostActiveApiUrl();
-    }
+        return responce;    }
 
-    public String getGainersMArketsApiURL(){
+    public String getGainersMArketsApiURLResponce(){
         String responce = null;
         String url = networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getGainersMarketsApiUrl();
         responce = networkHTTPConnection.getHttp(url);
-        return networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getGainersMarketsApiUrl();
-    }
+        return responce;    }
 
-    public String getLosersMArketsApiURL(){
+    public String getLosersMArketsApiURLResponce(){
         String responce = null;
         String url = networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getLossersMarketsApiUrl();
         responce = networkHTTPConnection.getHttp(url);
-        return networkHttpAPIurlConst.getBasicApiUrl()+networkHttpAPIurlConst.getLossersMarketsApiUrl();
-    }
+        return responce;    }
 }

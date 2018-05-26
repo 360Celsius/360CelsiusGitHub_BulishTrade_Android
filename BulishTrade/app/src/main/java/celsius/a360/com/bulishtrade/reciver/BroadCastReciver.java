@@ -30,10 +30,13 @@ public class BroadCastReciver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         if (intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_TOP_MARKETS_KEY)) {
 
+
+
+        } else if (intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_KEY)) {
+
             Intent intentone = new Intent(context.getApplicationContext(), MainActivity.class);
             intentone.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP | Intent.FLAG_ACTIVITY_NEW_TASK);
             context.startActivity(intentone);
-
         }
     }
 }

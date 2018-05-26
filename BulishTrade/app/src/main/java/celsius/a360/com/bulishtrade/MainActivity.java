@@ -8,6 +8,8 @@ import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
+import com.example.dennisshar.bulishtrade.R;
+
 import celsius.a360.com.bulishtrade.fragments.FragmentGainers;
 import celsius.a360.com.bulishtrade.fragments.FragmentLosers;
 import celsius.a360.com.bulishtrade.fragments.FragmentMostActive;
@@ -41,13 +43,13 @@ public class MainActivity extends BaseActivity {
                         String selectedFragmentTag = null;
                         switch (item.getItemId()) {
                             case R.id.action_item1:
-                                selectedFragment = new FragmentTopMarkets();
-                                selectedFragmentTag = FragmentTopMarkets.TAG;
+                                selectedFragment = new FragmentMostActive();
+                                selectedFragmentTag = FragmentMostActive.TAG;
 
                                 break;
                             case R.id.action_item2:
-                                selectedFragment = new FragmentMostActive();
-                                selectedFragmentTag = FragmentMostActive.TAG;
+                                selectedFragment = new FragmentTopMarkets();
+                                selectedFragmentTag = FragmentTopMarkets.TAG;
 
                                 break;
                             case R.id.action_item3:

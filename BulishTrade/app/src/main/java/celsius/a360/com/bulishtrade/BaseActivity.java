@@ -9,12 +9,16 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.Window;
 import android.view.WindowManager;
 
+import com.example.dennisshar.bulishtrade.R;
+
+import celsius.a360.com.bulishtrade.dbhelper.DatabaseHelper;
 import celsius.a360.com.bulishtrade.reciver.BroadCastReciver;
 import celsius.a360.com.bulishtrade.service.DataPullService;
 
 public class BaseActivity extends AppCompatActivity {
 
     private BroadCastReciver receiver = null;
+    public static DatabaseHelper helper = null;
 
 
     @Override
@@ -31,8 +35,11 @@ public class BaseActivity extends AppCompatActivity {
 
         // finally change the color
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
-            window.setStatusBarColor(ContextCompat.getColor(this,R.color.status_bar_color));
+            window.setStatusBarColor(ContextCompat.getColor(this, R.color.status_bar_color));
         }
+
+        // In any activity just pass the context and use the singleton method
+        helper = DatabaseHelper.getInstance(getApplicationContext());
     }
 
     @Override

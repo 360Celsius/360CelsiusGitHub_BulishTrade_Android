@@ -24,6 +24,13 @@
             android:name="celsius.a360.com.bulishtrade.service.DataPullService"
             android:exported="false"/>
 
+        <provider
+            android:authorities="${applicationId}.provider"
+            android:enabled="true"
+            android:multiprocess="true"
+            android:name="celsius.a360.com.bulishtrade.dbhelper.BulishTradeProvider"
+            android:exported="true" />
+
 
         <receiver android:name="celsius.a360.com.bulishtrade.reciver.BroadCastReciver"/>
 
