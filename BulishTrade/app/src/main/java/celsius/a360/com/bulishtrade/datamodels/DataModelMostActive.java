@@ -2,12 +2,13 @@ package celsius.a360.com.bulishtrade.datamodels;
 
 public class DataModelMostActive {
 
-    private String most_active_data = null;
+    private String symbol = null;
     private String companyName = null;
     private String primaryExchange = null;
     private String sector = null;
     private String calculationPrice = null;
     private String open = null;
+    private String openTime = null;
     private String close = null;
     private String closeTime = null;
     private String high = null;
@@ -46,12 +47,21 @@ public class DataModelMostActive {
 
     }
 
-    public String getMost_active_data() {
-        return most_active_data;
+    public String getOpenTime() {
+        return openTime;
     }
 
-    public void setMost_active_data(String most_active_data) {
-        this.most_active_data = most_active_data;
+    public void setOpenTime(String openTime) {
+        this.openTime = openTime;
+    }
+
+
+    public String getSymbol() {
+        return symbol;
+    }
+
+    public void setSymbol(String symbol) {
+        this.symbol = symbol;
     }
 
     public String getCompanyName() {

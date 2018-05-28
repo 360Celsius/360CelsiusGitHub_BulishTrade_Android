@@ -21,6 +21,7 @@ public class DatabaseHelperContract {
         public static final Uri CONTENT_URI = Uri.parse(String.format(Locale.US,CONTENT_BASE, URI_SUFFIX));
 
         public static final String TABLE_NAME = "top_market_data";
+
         public static final String COLUMN_NAME_SYMBOL = "symbol";
         public static final String COLUMN_NAME_SECTOR = "sector";
         public static final String COLUMN_NAME_SECURITY_TYPE = "securityType";
@@ -72,11 +73,14 @@ public class DatabaseHelperContract {
         public static final Uri CONTENT_URI = Uri.parse(String.format(Locale.US,CONTENT_BASE, URI_SUFFIX));
 
         public static final String TABLE_NAME = "most_active_data";
+
+        public static final String COLUMN_NAME_SYMBOL = "symbol";
         public static final String COLUMN_NAME_COMPANY_NAME = "companyName";
         public static final String COLUMN_NAME_PRIMARY_EXCAHNE = "primaryExchange";
         public static final String COLUMN_NAME_SECTOR = "sector";
         public static final String COLUMN_NAME_CALCULATION_PRICE = "calculationPrice";
         public static final String COLUMN_NAME_OPEN = "open";
+        public static final String COLUMN_NAME_OPEN_TIME = "openTime";
         public static final String COLUMN_NAME_CLOSE = "close";
         public static final String COLUMN_NAME_CLOSE_TIME = "closeTime";
         public static final String COLUMN_NAME_HIGH = "high";
@@ -118,11 +122,13 @@ public class DatabaseHelperContract {
     public static final String SQL_CREATE_MOST_ACTIVE_DATA_TABLE =
             "CREATE TABLE " + MostActiveDataTable.TABLE_NAME + " (" +
                     MostActiveDataTable._ID + " INTEGER PRIMARY KEY," +
+                    MostActiveDataTable.COLUMN_NAME_SYMBOL + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_COMPANY_NAME + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_PRIMARY_EXCAHNE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_SECTOR + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_CALCULATION_PRICE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_OPEN + " TEXT," +
+                    MostActiveDataTable.COLUMN_NAME_OPEN_TIME + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_CLOSE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_CLOSE_TIME + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_HIGH + " TEXT," +
@@ -149,7 +155,6 @@ public class DatabaseHelperContract {
                     MostActiveDataTable.COLUMN_NAME_AVG_TOTAL_VOLUME + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_IEX_BID_PRICE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_IEX_BID_SIZE + " TEXT," +
-                    MostActiveDataTable.COLUMN_NAME_DAYLY_PRICE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_IEX_ASK_PRICE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_IEX_ASK_SIZE + " TEXT," +
                     MostActiveDataTable.COLUMN_NAME_MARKE_TCUP + " TEXT," +

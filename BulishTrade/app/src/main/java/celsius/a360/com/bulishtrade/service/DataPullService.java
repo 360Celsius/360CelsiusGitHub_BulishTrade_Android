@@ -4,6 +4,8 @@ import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
 
+import java.util.ArrayList;
+
 import celsius.a360.com.bulishtrade.BaseActivity;
 import celsius.a360.com.bulishtrade.datamodels.DataMotelTopMarkets;
 import celsius.a360.com.bulishtrade.datamodels.DataModelMostActive;
@@ -42,7 +44,7 @@ public class DataPullService extends IntentService {
             try {
                 String topMarketsDataResponce = null;
                 topMarketsDataResponce = networkHTTPRequests.getTopMArketsApiUrlResponce();
-                DataMotelTopMarkets dataMotelTopMarkets = jSONparser.getTopMarketsDataModelFromJson(topMarketsDataResponce);
+                ArrayList<DataMotelTopMarkets> dataMotelTopMarkets = jSONparser.getTopMarketsDataModelFromJson(topMarketsDataResponce);
 
 
             } catch (Exception e) {
@@ -52,8 +54,8 @@ public class DataPullService extends IntentService {
 
             String topActiveDataResponce = null;
             topActiveDataResponce = networkHTTPRequests.getMosActiveMArketsApiURLResponce();
-            DataModelMostActive dataModelMostActive = jSONparser.getMostActiveDataModelFromJson(topActiveDataResponce);
-
+            ArrayList<DataModelMostActive> dataModelMostActive = jSONparser.getMostActiveDataModelFromJson(topActiveDataResponce);
+            helper.bulkInsertDataToTopMarketsDataTable(dataModelMostActive);
 
 
             Intent broadcastIntent = new Intent();
