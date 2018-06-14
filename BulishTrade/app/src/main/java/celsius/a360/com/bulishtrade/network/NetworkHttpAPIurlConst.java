@@ -2,12 +2,12 @@ package celsius.a360.com.bulishtrade.network;
 
 public class NetworkHttpAPIurlConst {
 
-    private static String BASIC_API_URL = "https://ws-api.iextrading.com/1.0";
+    private static String BASIC_API_URL = "https://bulishtrading.000webhostapp.com/Api/api.php?requestType=";
 
-    private static String TOP_MARKETS_API_URL = "/tops";
-    private static String MOST_ACTIVE_API_URL = "/stock/market/list/mostactive";
-    private static String GAINERS_MARKETS_API_URL = "/stock/market/list/gainers";
-    private static String LOSSERS_MARKETS_API_URL = "/stock/market/list/losers";
+    private static String TOP_MARKETS_API_URL = "getTops";
+    private static String MOST_ACTIVE_API_URL = "getMostActive";
+    private static String GAINERS_MARKETS_API_URL = "getGainers";
+    private static String LOSSERS_MARKETS_API_URL = "getLossers";
 
     private static NetworkHttpAPIurlConst _instance;
 

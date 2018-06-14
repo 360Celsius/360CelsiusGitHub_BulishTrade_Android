@@ -7,7 +7,7 @@ import android.support.annotation.Nullable;
 import java.util.ArrayList;
 
 import celsius.a360.com.bulishtrade.BaseActivity;
-import celsius.a360.com.bulishtrade.datamodels.DataMotelTopMarkets;
+import celsius.a360.com.bulishtrade.datamodels.DataMotelTops;
 import celsius.a360.com.bulishtrade.datamodels.DataModelMostActive;
 import celsius.a360.com.bulishtrade.dbhelper.DatabaseHelper;
 import celsius.a360.com.bulishtrade.jasonparser.JsonParser;
@@ -44,7 +44,7 @@ public class DataPullService extends IntentService {
             try {
                 String topMarketsDataResponce = null;
                 topMarketsDataResponce = networkHTTPRequests.getTopMArketsApiUrlResponce();
-                ArrayList<DataMotelTopMarkets> dataMotelTopMarkets = jSONparser.getTopMarketsDataModelFromJson(topMarketsDataResponce);
+                ArrayList<DataMotelTops> dataMotelTopMarkets = jSONparser.getTopMarketsDataModelFromJson(topMarketsDataResponce);
 
 
             } catch (Exception e) {
