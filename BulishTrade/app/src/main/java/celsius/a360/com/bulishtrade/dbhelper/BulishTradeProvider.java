@@ -16,13 +16,18 @@ public class BulishTradeProvider extends ContentProvider {
 
     private static final int TOP_MARKETS = 1;
     private static final int MOST_ACTIVE = 2;
+    private static final int GAINERS = 3;
+    private static final int LOSERS = 4;
+    private static final int PORTFOLIO = 5;
 
     private static final UriMatcher mMatcher = new UriMatcher(UriMatcher.NO_MATCH);
 
     static {
         mMatcher.addURI(DatabaseHelperContract.AUTHORITY, DatabaseHelperContract.TopMarketsDataTable.URI_SUFFIX, TOP_MARKETS);
         mMatcher.addURI(DatabaseHelperContract.AUTHORITY, DatabaseHelperContract.MostActiveDataTable.URI_SUFFIX, MOST_ACTIVE);
-
+        mMatcher.addURI(DatabaseHelperContract.AUTHORITY, DatabaseHelperContract.GainersDataTable.URI_SUFFIX, GAINERS);
+        mMatcher.addURI(DatabaseHelperContract.AUTHORITY, DatabaseHelperContract.LosersDataTable.URI_SUFFIX, LOSERS);
+        mMatcher.addURI(DatabaseHelperContract.AUTHORITY, DatabaseHelperContract.PortfolioDataTable.URI_SUFFIX, PORTFOLIO);
     }
 
 
@@ -80,6 +85,15 @@ public class BulishTradeProvider extends ContentProvider {
             case MOST_ACTIVE:
                 tableName = DatabaseHelperContract.MostActiveDataTable.TABLE_NAME;
                 break;
+            case GAINERS:
+                tableName = DatabaseHelperContract.GainersDataTable.TABLE_NAME;
+                break;
+            case LOSERS:
+                tableName = DatabaseHelperContract.LosersDataTable.TABLE_NAME;
+                break;
+            case PORTFOLIO:
+                tableName = DatabaseHelperContract.PortfolioDataTable.TABLE_NAME;
+                break;
         }
 
         return tableName;
@@ -94,6 +108,15 @@ public class BulishTradeProvider extends ContentProvider {
                 break;
             case MOST_ACTIVE:
                 contentUriName = DatabaseHelperContract.MostActiveDataTable.CONTENT_URI;
+                break;
+            case GAINERS:
+                contentUriName = DatabaseHelperContract.GainersDataTable.CONTENT_URI;
+                break;
+            case LOSERS:
+                contentUriName = DatabaseHelperContract.LosersDataTable.CONTENT_URI;
+                break;
+            case PORTFOLIO:
+                contentUriName = DatabaseHelperContract.PortfolioDataTable.CONTENT_URI;
                 break;
         }
 
