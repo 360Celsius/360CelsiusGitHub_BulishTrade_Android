@@ -8,6 +8,7 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 
 import celsius.a360.com.bulishtrade.datamodels.DataModelGainers;
+import celsius.a360.com.bulishtrade.datamodels.DataModelLosers;
 import celsius.a360.com.bulishtrade.datamodels.DataModelMostActive;
 import celsius.a360.com.bulishtrade.datamodels.DataMotelTops;
 
@@ -64,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //=============================MostActiveDataTable========================================
 
-    public void bulkInsertDataToTopMarketsDataTable(ArrayList<DataModelMostActive> dataMotelMostActive){
+    public void bulkInsertDataToMostActiveDataTable(ArrayList<DataModelMostActive> dataMotelMostActive){
         try {
             deleteMostActiveDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelMostActive.size()];
@@ -284,7 +285,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //=============================LosersDataTable========================================
 
-    public void bulkInsertDataToLosersDataTable(ArrayList<DataModelGainers> dataMotelLosers){
+    public void bulkInsertDataToLosersDataTable(ArrayList<DataModelLosers> dataMotelLosers){
         try {
             deleteLosersDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelLosers.size()];

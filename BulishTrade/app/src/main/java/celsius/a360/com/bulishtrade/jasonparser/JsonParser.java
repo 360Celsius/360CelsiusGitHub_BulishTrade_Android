@@ -17,25 +17,6 @@ public class JsonParser {
 
     }
 
-    public ArrayList<DataMotelTops> getTopMarketsDataModelFromJson(String apiRequestResponce){
-
-        JSONObject reader = null;
-        JSONObject statusJSONObject = null;
-        ArrayList<DataMotelTops> dataMotelTopMarketsList = new ArrayList<>();
-
-        try {
-            reader = new JSONObject(apiRequestResponce);
-
-        } catch (JSONException e) {
-            e.printStackTrace();
-            return null;
-        }
-
-
-        return dataMotelTopMarketsList;
-
-    }
-
 
     public ArrayList<DataModelMostActive> getMostActiveDataModelFromJson(String apiRequestResponce){
 

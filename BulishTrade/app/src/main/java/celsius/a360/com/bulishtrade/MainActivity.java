@@ -1,20 +1,16 @@
 package celsius.a360.com.bulishtrade;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.BottomNavigationView;
-import android.support.v4.app.Fragment;
-import android.support.v4.app.FragmentTransaction;
 import android.view.MenuItem;
 import android.widget.RelativeLayout;
 
 import com.example.dennisshar.bulishtrade.R;
 
-import celsius.a360.com.bulishtrade.fragments.FragmentGainers;
-import celsius.a360.com.bulishtrade.fragments.FragmentLosers;
-import celsius.a360.com.bulishtrade.fragments.FragmentMostActive;
-import celsius.a360.com.bulishtrade.fragments.FragmentPortfolio;
-import celsius.a360.com.bulishtrade.fragments.FragmentTopMarkets;
+import celsius.a360.com.bulishtrade.service.DataPullService;
+import celsius.a360.com.bulishtrade.service.DataPullServiceConsts;
 import celsius.a360.com.bulishtrade.viewhelper.BottomNavigationViewHelper;
 
 public class MainActivity extends BaseActivity {
@@ -39,45 +35,26 @@ public class MainActivity extends BaseActivity {
                 (new BottomNavigationView.OnNavigationItemSelectedListener() {
                     @Override
                     public boolean onNavigationItemSelected(@NonNull MenuItem item) {
-                        Fragment selectedFragment = null;
-                        String selectedFragmentTag = null;
+
+                        Intent msgIntent = new Intent(getApplicationContext(), DataPullService.class);
                         switch (item.getItemId()) {
                             case R.id.action_item1:
-                                selectedFragment = new FragmentMostActive();
-                                selectedFragmentTag = FragmentMostActive.TAG;
-
+                                msgIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_MOST_ACTIVE_KEY);
                                 break;
                             case R.id.action_item2:
-                                selectedFragment = new FragmentTopMarkets();
-                                selectedFragmentTag = FragmentTopMarkets.TAG;
-
+                                msgIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_TOP_MARKETS_KEY);
                                 break;
                             case R.id.action_item3:
-                                selectedFragment = new FragmentGainers();
-                                selectedFragmentTag = FragmentGainers.TAG;
-
+                                msgIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_GAINERS_MARKETS_KEY);
                                 break;
                             case R.id.action_item4:
-                                selectedFragment = new FragmentLosers();
-                                selectedFragmentTag = FragmentLosers.TAG;
-
+                                msgIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_LOSSERS_MARKETS_KEY);
                                 break;
                             case R.id.action_item5:
-                                selectedFragment = new FragmentPortfolio();
-                                selectedFragmentTag = FragmentPortfolio.TAG;
-
+                                msgIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_PORTFOLIO_KEY);
                                 break;
                         }
-                        FragmentTransaction ft =   getSupportFragmentManager().beginTransaction();
-                        if(getSupportFragmentManager().findFragmentById(R.id.list_view_placeholder) != null) {
-                            ft.remove(getSupportFragmentManager().findFragmentById(R.id.list_view_placeholder));
-                            ft.add(R.id.list_view_placeholder,selectedFragment,selectedFragmentTag);
-                            ft.commit();
-                        }else{
-                            ft.add(R.id.list_view_placeholder, selectedFragment,selectedFragmentTag);
-                            ft.commit();
-                        }
-
+                        startService(msgIntent);
                         return true;
                     }
                 });

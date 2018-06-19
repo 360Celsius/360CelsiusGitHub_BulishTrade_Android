@@ -6,6 +6,8 @@ public class DataPullServiceConsts {
 
     public static final String GET_TOP_MARKETS_KEY = "GET_TOP_MARKETS_KEY";
     public static final String GET_MOST_ACTIVE_KEY = "GET_MOST_ACTIVE_KEY";
+    public static final String GET_MOST_ACTIVE_FROM_SPLASH_KEY = "GET_MOST_ACTIVE_FROM_SPLASH_KEY";
     public static final String GET_GAINERS_MARKETS_KEY= "GET_GAINERS_MARKETS_KEY";
-    public static final String LOSSERS_MARKETS_KEY = "LOSSERS_MARKETS_KEY";
+    public static final String GET_LOSSERS_MARKETS_KEY = "GET_LOSSERS_MARKETS_KEY";
+    public static final String GET_PORTFOLIO_KEY = "GET_PORTFOLIO_KEY";
 }
