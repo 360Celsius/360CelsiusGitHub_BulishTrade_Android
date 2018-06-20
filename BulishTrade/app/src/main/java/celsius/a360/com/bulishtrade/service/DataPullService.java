@@ -54,7 +54,16 @@ public class DataPullService extends IntentService {
             broadcastIntent.setAction(GET_QOUTES_DATA);
             broadcastIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_MOST_ACTIVE_FROM_SPLASH_KEY);
             sendBroadcast(broadcastIntent);
-        }else if (intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_KEY)) {
+
+        }if (intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_JUST_VIEW_KEY)) {
+
+            Intent broadcastIntent = new Intent();
+            broadcastIntent.setAction(GET_QOUTES_DATA);
+            broadcastIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_MOST_ACTIVE_JUST_VIEW_KEY);
+            sendBroadcast(broadcastIntent);
+        }
+
+        else if (intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_KEY)) {
 
             String mostActiveDataResponce = null;
             mostActiveDataResponce = networkHTTPRequests.getMosActiveMArketsApiURLResponce();

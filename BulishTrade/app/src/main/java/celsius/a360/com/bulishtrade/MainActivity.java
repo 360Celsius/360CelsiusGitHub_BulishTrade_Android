@@ -24,6 +24,11 @@ public class MainActivity extends BaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        if(getIntent()!=null && getIntent().getExtras()!=null &&  getIntent().getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_FROM_SPLASH_KEY) ){
+            Intent msgIntent = new Intent(getApplicationContext(), DataPullService.class);
+            msgIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_MOST_ACTIVE_JUST_VIEW_KEY);
+            startService(msgIntent);
+        }
 
         mainView = (RelativeLayout) findViewById(R.id.main_view);
         bottomNavigationView = (BottomNavigationView) findViewById(R.id.navigation);
@@ -63,6 +68,7 @@ public class MainActivity extends BaseActivity {
     @Override
     protected void onResume() {
         super.onResume();
-        bottomNavigationView.setSelectedItemId(R.id.action_item1);
+        //bottomNavigationView.setSelectedItemId(R.id.action_item1);
+
     }
 }
