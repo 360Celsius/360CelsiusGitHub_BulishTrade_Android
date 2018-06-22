@@ -5,6 +5,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.support.v4.app.FragmentTransaction;
 import android.support.v7.app.AppCompatActivity;
+import android.util.Log;
 
 import com.example.dennisshar.bulishtrade.R;
 
@@ -51,13 +52,7 @@ public class BroadCastReciver extends BroadcastReceiver {
             ft.remove(((AppCompatActivity) context).getSupportFragmentManager().findFragmentById(R.id.list_view_placeholder));
         }
 
-        if( intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_JUST_VIEW_KEY) ){
-            try {
-                ft.add(R.id.list_view_placeholder, new FragmentMostActive(), FragmentMostActive.TAG);
-            }catch (Exception e){
-                e.printStackTrace();
-            }
-        }else if( intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_KEY) ){
+        if( intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_KEY) ){
             try {
                 ft.add(R.id.list_view_placeholder, new FragmentMostActive(), FragmentMostActive.TAG);
             }catch (Exception e){

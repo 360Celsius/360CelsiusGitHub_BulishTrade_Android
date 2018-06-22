@@ -3,6 +3,7 @@ package celsius.a360.com.bulishtrade;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
+import android.util.Log;
 
 import com.example.dennisshar.bulishtrade.R;
 
