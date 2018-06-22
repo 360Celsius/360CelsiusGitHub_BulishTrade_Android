@@ -12,10 +12,11 @@ import android.view.WindowManager;
 import com.example.dennisshar.bulishtrade.R;
 
 import celsius.a360.com.bulishtrade.dbhelper.DatabaseHelper;
+import celsius.a360.com.bulishtrade.interfaces.DBhelperInterface;
 import celsius.a360.com.bulishtrade.reciver.BroadCastReciver;
 import celsius.a360.com.bulishtrade.service.DataPullService;
 
-public class BaseActivity extends AppCompatActivity {
+public class BaseActivity extends AppCompatActivity implements DBhelperInterface {
 
     private BroadCastReciver receiver = null;
     public static DatabaseHelper helper = null;
@@ -55,6 +56,11 @@ public class BaseActivity extends AppCompatActivity {
     protected void onStop() {
         unregisterReceiver(receiver);
         super.onStop();
+    }
+
+    @Override
+    public DatabaseHelper getDBhelper() {
+        return helper;
     }
 }
 

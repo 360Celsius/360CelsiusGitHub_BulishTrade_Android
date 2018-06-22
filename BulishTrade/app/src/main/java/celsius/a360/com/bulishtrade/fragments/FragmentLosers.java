@@ -9,7 +9,7 @@ import android.view.ViewGroup;
 import com.example.dennisshar.bulishtrade.R;
 
 
-public class FragmentLosers extends Fragment {
+public class FragmentLosers extends BaseFragment {
 
     public final static String TAG = "FragmentLosers";
 

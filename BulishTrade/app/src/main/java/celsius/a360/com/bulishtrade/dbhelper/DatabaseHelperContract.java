@@ -219,6 +219,8 @@ public class DatabaseHelperContract {
     public static final String SQL_SELECT_MOST_ACTIVE_DATA_TABLE =
             "SELECT  * FROM " + MostActiveDataTable.TABLE_NAME + " WHERE "+ MostActiveDataTable._ID;
 
+    public static final String SQL_SELECT_CATEGORIES_FROM_DATA_TABLE =
+            "SELECT DISTINCT sector FROM " + MostActiveDataTable.TABLE_NAME;
 
     //=============================GainersDataTable========================================
     /* Inner class that defines the table contents */

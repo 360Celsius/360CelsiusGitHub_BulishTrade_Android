@@ -2,10 +2,12 @@ package celsius.a360.com.bulishtrade.dbhelper;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import celsius.a360.com.bulishtrade.datamodels.DataModelGainers;
 import celsius.a360.com.bulishtrade.datamodels.DataModelLosers;
@@ -135,7 +137,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public List<String> getCategoriesMostActive(){
 
+        List<String> listItems = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DatabaseHelperContract.SQL_SELECT_CATEGORIES_FROM_DATA_TABLE, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    listItems.add(cursor.getString(cursor.getColumnIndex(DatabaseHelperContract.MostActiveDataTable.COLUMN_NAME_SECTOR)));
+                } while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+         return listItems;
+    }
     //=============================TopsDataTable========================================
 
     public void bulkInsertDataToTopsDataTable(ArrayList<DataMotelTops> dataMotelTopMarkets){
@@ -208,7 +233,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public List<String> getCategoriesTops(){
 
+        List<String> listItems = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DatabaseHelperContract.SQL_SELECT_CATEGORIES_FROM_DATA_TABLE, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    listItems.add(cursor.getString(cursor.getColumnIndex(DatabaseHelperContract.TopMarketsDataTable.COLUMN_NAME_SECTOR)));
+                } while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return listItems;
+    }
 
     //=============================GainersDataTable========================================
 
@@ -282,7 +330,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
         }
     }
 
+    public List<String> getCategoriesGainers(){
 
+        List<String> listItems = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DatabaseHelperContract.SQL_SELECT_CATEGORIES_FROM_DATA_TABLE, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    listItems.add(cursor.getString(cursor.getColumnIndex(DatabaseHelperContract.GainersDataTable.COLUMN_NAME_SECTOR)));
+                } while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return listItems;
+    }
     //=============================LosersDataTable========================================
 
     public void bulkInsertDataToLosersDataTable(ArrayList<DataModelLosers> dataMotelLosers){
@@ -356,7 +427,30 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
 
 
+    public List<String> getCategoriesLosers(){
 
+        List<String> listItems = new ArrayList<>();
+
+        SQLiteDatabase db = this.getWritableDatabase();
+        Cursor cursor = db.rawQuery(DatabaseHelperContract.SQL_SELECT_CATEGORIES_FROM_DATA_TABLE, null);
+
+        try {
+            if (cursor.moveToFirst()) {
+                do {
+                    listItems.add(cursor.getString(cursor.getColumnIndex(DatabaseHelperContract.LosersDataTable.COLUMN_NAME_SECTOR)));
+                } while (cursor.moveToNext());
+            }
+        }catch (Exception e){
+            e.printStackTrace();
+            return null;
+        }finally {
+            if (cursor != null && !cursor.isClosed()) {
+                cursor.close();
+            }
+        }
+
+        return listItems;
+    }
     //=============================PortfolioDataTable========================================
 
     public void bulkInsertDataToPortfolioDataTable(ArrayList<DataModelGainers> dataMotelPortfolio){
