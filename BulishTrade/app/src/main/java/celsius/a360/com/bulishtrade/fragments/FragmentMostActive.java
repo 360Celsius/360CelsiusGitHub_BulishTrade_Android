@@ -1,6 +1,7 @@
 package celsius.a360.com.bulishtrade.fragments;
 
 import android.content.Context;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.dennisshar.bulishtrade.R;
+import com.gigamole.navigationtabstrip.NavigationTabStrip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -22,13 +24,12 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
 
     public final static String TAG = "FragmentMostActive";
 
-    private LinearLayout indicator;
-    private int mDotCount;
-    private LinearLayout[] mDots;
     private ViewPager viewPager;
     private List<String> pagerFragments = new ArrayList<>();
     private ViewPagerFragmentAdapter fragmentAdapter;
     private Context context;
+
+    private NavigationTabStrip navigationTabStrip;
 
 
     @Nullable
@@ -36,12 +37,10 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmnet_most_active, container, false);
 
-
-       // indicator = (LinearLayout) view.findViewById(R.id.indicators);
+        navigationTabStrip = (NavigationTabStrip) view.findViewById(R.id.navigation_tab_strip);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager_itemList);
 
         setData();
-
 
         return view;
     }
@@ -59,10 +58,7 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
 
     @Override
     public void onPageSelected(int position) {
-        for (int i=0; i<mDotCount; i++){
-            //mDots[i].setBackgroundResource(R.drawable.nonselected_item);
-        }
-        //mDots[position].setBackgroundResource(R.drawable.selected_item);
+
     }
 
     @Override
@@ -79,26 +75,35 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setCurrentItem(0);
         viewPager.setOnPageChangeListener(this);
-        setUiPageViewController();
+
+
+        setViewPagerNavigator();
 
     }
 
-    private void setUiPageViewController(){
-        mDotCount = fragmentAdapter.getCount();
-        mDots = new LinearLayout[mDotCount];
+    private void setViewPagerNavigator(){
 
-        for(int i=0; i<mDotCount; i++){
-            //mDots[i] = new LinearLayout(context);
-            //mDots[i].setBackgroundResource(R.drawable.nonselected_item);
-
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(
-                    LinearLayoutCompat.LayoutParams.WRAP_CONTENT,
-                    LinearLayout.LayoutParams.WRAP_CONTENT
-            );
-
-            params.setMargins(4,0,4,0);
-            //indicator.addView(mDots[i],params);
-            //mDots[0].setBackgroundResource(R.drawable.selected_item);
+        String[] str = new String[pagerFragments.size()];
+        for(int i=0 ; i<pagerFragments.size(); i++ ){
+            str[i] = pagerFragments.get(i);
         }
+
+        navigationTabStrip.setTitles(str);
+
+        navigationTabStrip.setTabIndex(0, true);
+        navigationTabStrip.setTitleSize(32);
+        navigationTabStrip.setStripColor(Color.RED);
+        navigationTabStrip.setStripWeight(6);
+        navigationTabStrip.setStripFactor(2);
+        navigationTabStrip.setStripType(NavigationTabStrip.StripType.POINT);
+        navigationTabStrip.setStripGravity(NavigationTabStrip.StripGravity.BOTTOM);
+        navigationTabStrip.setTypeface("fonts/typeface.ttf");
+        navigationTabStrip.setCornersRadius(3);
+        navigationTabStrip.setAnimationDuration(300);
+        navigationTabStrip.setInactiveColor(Color.GRAY);
+        navigationTabStrip.setActiveColor(Color.RED);
+        //navigationTabStrip.setOnPageChangeListener();
+        //navigationTabStrip.setOnTabStripSelectedIndexListener(...);
     }
+
 }
