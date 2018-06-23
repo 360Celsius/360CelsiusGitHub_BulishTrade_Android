@@ -1,6 +1,6 @@
 package celsius.a360.com.bulishtrade.datamodels;
 
-public class DataModelMostActive {
+public class QuoteDataModel {
 
     private String symbol = null;
     private String companyName = null;
@@ -43,7 +43,7 @@ public class DataModelMostActive {
     private String week52Low = null;
     private String ytdChange = null;
 
-    public DataModelMostActive() {
+    public QuoteDataModel() {
 
     }
 

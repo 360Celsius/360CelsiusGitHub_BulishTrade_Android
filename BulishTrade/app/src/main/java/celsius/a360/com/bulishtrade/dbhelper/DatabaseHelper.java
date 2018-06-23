@@ -9,10 +9,8 @@ import android.database.sqlite.SQLiteOpenHelper;
 import java.util.ArrayList;
 import java.util.List;
 
-import celsius.a360.com.bulishtrade.datamodels.DataModelGainers;
-import celsius.a360.com.bulishtrade.datamodels.DataModelLosers;
-import celsius.a360.com.bulishtrade.datamodels.DataModelMostActive;
-import celsius.a360.com.bulishtrade.datamodels.DataMotelTops;
+import celsius.a360.com.bulishtrade.datamodels.QuoteDataModel;
+
 
 public class DatabaseHelper extends SQLiteOpenHelper {
 
@@ -67,7 +65,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //=============================MostActiveDataTable========================================
 
-    public void bulkInsertDataToMostActiveDataTable(ArrayList<DataModelMostActive> dataMotelMostActive){
+    public void bulkInsertDataToMostActiveDataTable(ArrayList<QuoteDataModel> dataMotelMostActive){
         try {
             deleteMostActiveDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelMostActive.size()];
@@ -163,7 +161,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     //=============================TopsDataTable========================================
 
-    public void bulkInsertDataToTopsDataTable(ArrayList<DataMotelTops> dataMotelTopMarkets){
+    public void bulkInsertDataToTopsDataTable(ArrayList<QuoteDataModel> dataMotelTopMarkets){
         try {
             deleteTopsDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelTopMarkets.size()];
@@ -260,7 +258,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
 
     //=============================GainersDataTable========================================
 
-    public void bulkInsertDataToGainersDataTable(ArrayList<DataModelGainers> dataMotelgainers){
+    public void bulkInsertDataToGainersDataTable(ArrayList<QuoteDataModel> dataMotelgainers){
         try {
             deleteGainersDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelgainers.size()];
@@ -356,7 +354,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     //=============================LosersDataTable========================================
 
-    public void bulkInsertDataToLosersDataTable(ArrayList<DataModelLosers> dataMotelLosers){
+    public void bulkInsertDataToLosersDataTable(ArrayList<QuoteDataModel> dataMotelLosers){
         try {
             deleteLosersDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelLosers.size()];
@@ -453,7 +451,7 @@ public class DatabaseHelper extends SQLiteOpenHelper {
     }
     //=============================PortfolioDataTable========================================
 
-    public void bulkInsertDataToPortfolioDataTable(ArrayList<DataModelGainers> dataMotelPortfolio){
+    public void bulkInsertDataToPortfolioDataTable(ArrayList<QuoteDataModel> dataMotelPortfolio){
         try {
             deletePortfolioDataTable();
             ContentValues[] contentsArr = new ContentValues[dataMotelPortfolio.size()];

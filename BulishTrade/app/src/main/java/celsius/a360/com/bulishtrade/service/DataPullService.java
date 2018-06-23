@@ -3,15 +3,11 @@ package celsius.a360.com.bulishtrade.service;
 import android.app.IntentService;
 import android.content.Intent;
 import android.support.annotation.Nullable;
-import android.util.Log;
 
 import java.util.ArrayList;
 
 import celsius.a360.com.bulishtrade.BaseActivity;
-import celsius.a360.com.bulishtrade.datamodels.DataModelGainers;
-import celsius.a360.com.bulishtrade.datamodels.DataModelLosers;
-import celsius.a360.com.bulishtrade.datamodels.DataMotelTops;
-import celsius.a360.com.bulishtrade.datamodels.DataModelMostActive;
+import celsius.a360.com.bulishtrade.datamodels.QuoteDataModel;
 import celsius.a360.com.bulishtrade.dbhelper.DatabaseHelper;
 import celsius.a360.com.bulishtrade.jasonparser.JsonParser;
 import celsius.a360.com.bulishtrade.network.NetworkHTTPRequests;
@@ -55,7 +51,7 @@ public class DataPullService extends IntentService {
 
             String mostActiveDataResponce = null;
             mostActiveDataResponce = networkHTTPRequests.getMosActiveMArketsApiURLResponce();
-            ArrayList<DataModelMostActive> dataModelMostActive = jSONparser.getMostActiveDataModelFromJson(mostActiveDataResponce);
+            ArrayList<QuoteDataModel> dataModelMostActive = jSONparser.getMostActiveDataModelFromJson(mostActiveDataResponce);
             helper.bulkInsertDataToMostActiveDataTable(dataModelMostActive);
 
             Intent broadcastIntent = new Intent();
@@ -66,7 +62,7 @@ public class DataPullService extends IntentService {
 
             String topsDataResponce = null;
             topsDataResponce = networkHTTPRequests.getTopMArketsApiUrlResponce();
-            ArrayList<DataMotelTops> dataModelTops = jSONparser.getTopsDataModelFromJson(topsDataResponce);
+            ArrayList<QuoteDataModel> dataModelTops = jSONparser.getTopsDataModelFromJson(topsDataResponce);
             helper.bulkInsertDataToTopsDataTable(dataModelTops);
 
             Intent broadcastIntent = new Intent();
@@ -77,8 +73,8 @@ public class DataPullService extends IntentService {
 
             String gainersDataResponce = null;
             gainersDataResponce = networkHTTPRequests.getGainersMArketsApiURLResponce();
-            ArrayList<DataModelGainers> dataModelGainers = jSONparser.getGainersDataModelFromJson(gainersDataResponce);
-            helper.bulkInsertDataToGainersDataTable(dataModelGainers);
+            ArrayList<QuoteDataModel> quoteDataModelGainers = jSONparser.getGainersDataModelFromJson(gainersDataResponce);
+            helper.bulkInsertDataToGainersDataTable(quoteDataModelGainers);
 
             Intent broadcastIntent = new Intent();
             broadcastIntent.setAction(GET_QOUTES_DATA);
@@ -88,7 +84,7 @@ public class DataPullService extends IntentService {
 
             String losersDataResponce = null;
             losersDataResponce = networkHTTPRequests.getLosersMArketsApiURLResponce();
-            ArrayList<DataModelLosers> dataModelLosers = jSONparser.getLosersDataModelFromJson(losersDataResponce);
+            ArrayList<QuoteDataModel> dataModelLosers = jSONparser.getLosersDataModelFromJson(losersDataResponce);
             helper.bulkInsertDataToLosersDataTable(dataModelLosers);
 
             Intent broadcastIntent = new Intent();

@@ -1,15 +1,11 @@
 package celsius.a360.com.bulishtrade.jasonparser;
 
 import org.json.JSONArray;
-import org.json.JSONException;
 import org.json.JSONObject;
 
 import java.util.ArrayList;
 
-import celsius.a360.com.bulishtrade.datamodels.DataModelGainers;
-import celsius.a360.com.bulishtrade.datamodels.DataModelLosers;
-import celsius.a360.com.bulishtrade.datamodels.DataMotelTops;
-import celsius.a360.com.bulishtrade.datamodels.DataModelMostActive;
+import celsius.a360.com.bulishtrade.datamodels.QuoteDataModel;
 
 public class JsonParser {
 
@@ -18,16 +14,16 @@ public class JsonParser {
     }
 
 
-    public ArrayList<DataModelMostActive> getMostActiveDataModelFromJson(String apiRequestResponce){
+    public ArrayList<QuoteDataModel> getMostActiveDataModelFromJson(String apiRequestResponce){
 
         JSONArray reader = null;
-        ArrayList<DataModelMostActive> dataMotelMostActiveList = new ArrayList<>();
+        ArrayList<QuoteDataModel> dataMotelMostActiveList = new ArrayList<>();
 
         try {
             reader = new JSONArray(apiRequestResponce);
             for (int i=0;i<reader.length();i++){
                 JSONObject jsonObject = reader.getJSONObject(i);
-                DataModelMostActive dataModelMostActive = new DataModelMostActive();
+                QuoteDataModel dataModelMostActive = new QuoteDataModel();
 
                 dataModelMostActive.setSymbol(String.valueOf(jsonObject.get("symbol")));
                 dataModelMostActive.setCompanyName(String.valueOf(jsonObject.get("companyName")));
@@ -85,16 +81,16 @@ public class JsonParser {
     }
 
 
-    public ArrayList<DataMotelTops> getTopsDataModelFromJson(String apiRequestResponce){
+    public ArrayList<QuoteDataModel> getTopsDataModelFromJson(String apiRequestResponce){
 
         JSONArray reader = null;
-        ArrayList<DataMotelTops> dataMotelTopsList = new ArrayList<>();
+        ArrayList<QuoteDataModel> dataMotelTopsList = new ArrayList<>();
 
         try {
             reader = new JSONArray(apiRequestResponce);
             for (int i=0;i<reader.length();i++){
                 JSONObject jsonObject = reader.getJSONObject(i);
-                DataMotelTops dataModelTops = new DataMotelTops();
+                QuoteDataModel dataModelTops = new QuoteDataModel();
 
                 dataModelTops.setSymbol(String.valueOf(jsonObject.get("symbol")));
                 dataModelTops.setCompanyName(String.valueOf(jsonObject.get("companyName")));
@@ -152,59 +148,59 @@ public class JsonParser {
     }
 
 
-    public ArrayList<DataModelGainers> getGainersDataModelFromJson(String apiRequestResponce){
+    public ArrayList<QuoteDataModel> getGainersDataModelFromJson(String apiRequestResponce){
 
         JSONArray reader = null;
-        ArrayList<DataModelGainers> dataMotelGainersList = new ArrayList<>();
+        ArrayList<QuoteDataModel> dataMotelGainersList = new ArrayList<>();
 
         try {
             reader = new JSONArray(apiRequestResponce);
             for (int i=0;i<reader.length();i++){
                 JSONObject jsonObject = reader.getJSONObject(i);
-                DataModelGainers dataModelGainers = new DataModelGainers();
+                QuoteDataModel quoteDataModel = new QuoteDataModel();
 
-                dataModelGainers.setSymbol(String.valueOf(jsonObject.get("symbol")));
-                dataModelGainers.setCompanyName(String.valueOf(jsonObject.get("companyName")));
-                dataModelGainers.setPrimaryExchange(String.valueOf(jsonObject.get("primaryExchange")));
-                dataModelGainers.setSector(String.valueOf(jsonObject.get("sector")));
-                dataModelGainers.setCalculationPrice(String.valueOf(jsonObject.get("calculationPrice")));
-                dataModelGainers.setOpen(String.valueOf(jsonObject.get("open")));
-                dataModelGainers.setOpenTime(String.valueOf(jsonObject.get("openTime")));
-                dataModelGainers.setClose(String.valueOf(jsonObject.get("close")));
-                dataModelGainers.setCloseTime(String.valueOf(jsonObject.get("closeTime")));
-                dataModelGainers.setHigh(String.valueOf(jsonObject.get("high")));
-                dataModelGainers.setLow(String.valueOf(jsonObject.get("low")));
-                dataModelGainers.setLatestPrice(String.valueOf(jsonObject.get("latestPrice")));
-                dataModelGainers.setLatestSource(String.valueOf(jsonObject.get("latestSource")));
-                dataModelGainers.setLatestTime(String.valueOf(jsonObject.get("latestTime")));
-                dataModelGainers.setLatestUpdate(String.valueOf(jsonObject.get("latestUpdate")));
-                dataModelGainers.setLatestVolume(String.valueOf(jsonObject.get("latestVolume")));
-                dataModelGainers.setIexRealtimePrice(String.valueOf(jsonObject.get("iexRealtimePrice")));
-                dataModelGainers.setIexRealtimeSize(String.valueOf(jsonObject.get("iexRealtimeSize")));
-                dataModelGainers.setIexLastUpdated(String.valueOf(jsonObject.get("iexLastUpdated")));
-                dataModelGainers.setDelayedPrice(String.valueOf(jsonObject.get("delayedPrice")));
-                dataModelGainers.setDelayedPriceTime(String.valueOf(jsonObject.get("delayedPriceTime")));
-                dataModelGainers.setExtendedPrice(String.valueOf(jsonObject.get("extendedPrice")));
-                dataModelGainers.setExtendedChange(String.valueOf(jsonObject.get("extendedChange")));
-                dataModelGainers.setExtendedChangePercent(String.valueOf(jsonObject.get("extendedChangePercent")));
-                dataModelGainers.setExtendedPriceTime(String.valueOf(jsonObject.get("extendedPriceTime")));
-                dataModelGainers.setPreviousClose(String.valueOf(jsonObject.get("previousClose")));
-                dataModelGainers.setChange(String.valueOf(jsonObject.get("change")));
-                dataModelGainers.setChangePercent(String.valueOf(jsonObject.get("changePercent")));
-                dataModelGainers.setIexMarketPercent(String.valueOf(jsonObject.get("iexMarketPercent")));
-                dataModelGainers.setIexVolume(String.valueOf(jsonObject.get("iexVolume")));
-                dataModelGainers.setAvgTotalVolume(String.valueOf(jsonObject.get("avgTotalVolume")));
-                dataModelGainers.setIexBidPrice(String.valueOf(jsonObject.get("iexBidPrice")));
-                dataModelGainers.setIexBidSize(String.valueOf(jsonObject.get("iexBidSize")));
-                dataModelGainers.setIexAskPrice(String.valueOf(jsonObject.get("iexAskPrice")));
-                dataModelGainers.setIexAskSize(String.valueOf(jsonObject.get("iexAskSize")));
-                dataModelGainers.setMarketCap(String.valueOf(jsonObject.get("marketCap")));
-                dataModelGainers.setPeRatio(String.valueOf(jsonObject.get("peRatio")));
-                dataModelGainers.setWeek52High(String.valueOf(jsonObject.get("week52High")));
-                dataModelGainers.setWeek52Low(String.valueOf(jsonObject.get("week52Low")));
-                dataModelGainers.setYtdChange(String.valueOf(jsonObject.get("ytdChange")));
+                quoteDataModel.setSymbol(String.valueOf(jsonObject.get("symbol")));
+                quoteDataModel.setCompanyName(String.valueOf(jsonObject.get("companyName")));
+                quoteDataModel.setPrimaryExchange(String.valueOf(jsonObject.get("primaryExchange")));
+                quoteDataModel.setSector(String.valueOf(jsonObject.get("sector")));
+                quoteDataModel.setCalculationPrice(String.valueOf(jsonObject.get("calculationPrice")));
+                quoteDataModel.setOpen(String.valueOf(jsonObject.get("open")));
+                quoteDataModel.setOpenTime(String.valueOf(jsonObject.get("openTime")));
+                quoteDataModel.setClose(String.valueOf(jsonObject.get("close")));
+                quoteDataModel.setCloseTime(String.valueOf(jsonObject.get("closeTime")));
+                quoteDataModel.setHigh(String.valueOf(jsonObject.get("high")));
+                quoteDataModel.setLow(String.valueOf(jsonObject.get("low")));
+                quoteDataModel.setLatestPrice(String.valueOf(jsonObject.get("latestPrice")));
+                quoteDataModel.setLatestSource(String.valueOf(jsonObject.get("latestSource")));
+                quoteDataModel.setLatestTime(String.valueOf(jsonObject.get("latestTime")));
+                quoteDataModel.setLatestUpdate(String.valueOf(jsonObject.get("latestUpdate")));
+                quoteDataModel.setLatestVolume(String.valueOf(jsonObject.get("latestVolume")));
+                quoteDataModel.setIexRealtimePrice(String.valueOf(jsonObject.get("iexRealtimePrice")));
+                quoteDataModel.setIexRealtimeSize(String.valueOf(jsonObject.get("iexRealtimeSize")));
+                quoteDataModel.setIexLastUpdated(String.valueOf(jsonObject.get("iexLastUpdated")));
+                quoteDataModel.setDelayedPrice(String.valueOf(jsonObject.get("delayedPrice")));
+                quoteDataModel.setDelayedPriceTime(String.valueOf(jsonObject.get("delayedPriceTime")));
+                quoteDataModel.setExtendedPrice(String.valueOf(jsonObject.get("extendedPrice")));
+                quoteDataModel.setExtendedChange(String.valueOf(jsonObject.get("extendedChange")));
+                quoteDataModel.setExtendedChangePercent(String.valueOf(jsonObject.get("extendedChangePercent")));
+                quoteDataModel.setExtendedPriceTime(String.valueOf(jsonObject.get("extendedPriceTime")));
+                quoteDataModel.setPreviousClose(String.valueOf(jsonObject.get("previousClose")));
+                quoteDataModel.setChange(String.valueOf(jsonObject.get("change")));
+                quoteDataModel.setChangePercent(String.valueOf(jsonObject.get("changePercent")));
+                quoteDataModel.setIexMarketPercent(String.valueOf(jsonObject.get("iexMarketPercent")));
+                quoteDataModel.setIexVolume(String.valueOf(jsonObject.get("iexVolume")));
+                quoteDataModel.setAvgTotalVolume(String.valueOf(jsonObject.get("avgTotalVolume")));
+                quoteDataModel.setIexBidPrice(String.valueOf(jsonObject.get("iexBidPrice")));
+                quoteDataModel.setIexBidSize(String.valueOf(jsonObject.get("iexBidSize")));
+                quoteDataModel.setIexAskPrice(String.valueOf(jsonObject.get("iexAskPrice")));
+                quoteDataModel.setIexAskSize(String.valueOf(jsonObject.get("iexAskSize")));
+                quoteDataModel.setMarketCap(String.valueOf(jsonObject.get("marketCap")));
+                quoteDataModel.setPeRatio(String.valueOf(jsonObject.get("peRatio")));
+                quoteDataModel.setWeek52High(String.valueOf(jsonObject.get("week52High")));
+                quoteDataModel.setWeek52Low(String.valueOf(jsonObject.get("week52Low")));
+                quoteDataModel.setYtdChange(String.valueOf(jsonObject.get("ytdChange")));
 
-                dataMotelGainersList.add(dataModelGainers);
+                dataMotelGainersList.add(quoteDataModel);
 
             }
 
@@ -218,16 +214,16 @@ public class JsonParser {
 
     }
 
-    public ArrayList<DataModelLosers> getLosersDataModelFromJson(String apiRequestResponce){
+    public ArrayList<QuoteDataModel> getLosersDataModelFromJson(String apiRequestResponce){
 
         JSONArray reader = null;
-        ArrayList<DataModelLosers> dataMotelLosersList = new ArrayList<>();
+        ArrayList<QuoteDataModel> dataMotelLosersList = new ArrayList<>();
 
         try {
             reader = new JSONArray(apiRequestResponce);
             for (int i=0;i<reader.length();i++){
                 JSONObject jsonObject = reader.getJSONObject(i);
-                DataModelLosers dataModelLosers = new DataModelLosers();
+                QuoteDataModel dataModelLosers = new QuoteDataModel();
 
                 dataModelLosers.setSymbol(String.valueOf(jsonObject.get("symbol")));
                 dataModelLosers.setCompanyName(String.valueOf(jsonObject.get("companyName")));
