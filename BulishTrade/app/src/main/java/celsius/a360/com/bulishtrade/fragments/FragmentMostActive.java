@@ -1,18 +1,13 @@
 package celsius.a360.com.bulishtrade.fragments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
 import com.example.dennisshar.bulishtrade.R;
-import com.gigamole.navigationtabstrip.NavigationTabStrip;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -29,15 +24,11 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
     private ViewPagerFragmentAdapter fragmentAdapter;
     private Context context;
 
-    private NavigationTabStrip navigationTabStrip;
-
-
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmnet_most_active, container, false);
 
-        navigationTabStrip = (NavigationTabStrip) view.findViewById(R.id.navigation_tab_strip);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager_itemList);
 
         setData();
@@ -87,23 +78,6 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
         for(int i=0 ; i<pagerFragments.size(); i++ ){
             str[i] = pagerFragments.get(i);
         }
-
-        navigationTabStrip.setTitles(str);
-
-        navigationTabStrip.setTabIndex(0, true);
-        navigationTabStrip.setTitleSize(32);
-        navigationTabStrip.setStripColor(Color.RED);
-        navigationTabStrip.setStripWeight(6);
-        navigationTabStrip.setStripFactor(2);
-        navigationTabStrip.setStripType(NavigationTabStrip.StripType.POINT);
-        navigationTabStrip.setStripGravity(NavigationTabStrip.StripGravity.BOTTOM);
-        navigationTabStrip.setTypeface("fonts/typeface.ttf");
-        navigationTabStrip.setCornersRadius(3);
-        navigationTabStrip.setAnimationDuration(300);
-        navigationTabStrip.setInactiveColor(Color.GRAY);
-        navigationTabStrip.setActiveColor(Color.RED);
-        //navigationTabStrip.setOnPageChangeListener();
-        //navigationTabStrip.setOnTabStripSelectedIndexListener(...);
     }
 
 }
