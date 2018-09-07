@@ -12,10 +12,21 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="58dp"
+            android:background="?attr/colorPrimary"
+            android:minHeight="?attr/actionBarSize"
+            android:titleTextColor="#ffffff"
+            android:layout_alignParentTop="true">
+        </android.support.v7.widget.Toolbar>
+
         <FrameLayout
             android:id="@+id/list_view_placeholder"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
+            android:layout_below="@+id/toolbar"
             android:layout_above="@+id/navigation_shadow"
             android:layout_marginLeft="0dp"
             android:layout_marginRight="1dp">
