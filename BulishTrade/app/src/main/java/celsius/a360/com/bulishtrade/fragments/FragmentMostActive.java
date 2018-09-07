@@ -12,7 +12,7 @@ import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.example.dennisshar.bulishtrade.R;
-import com.gigamole.navigationtabstrip.NavigationTabStrip;
+import com.nshmura.recyclertablayout.RecyclerTabLayout;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,11 +25,10 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
     public final static String TAG = "FragmentMostActive";
 
     private ViewPager viewPager;
+    private RecyclerTabLayout recyclerTabLayout;
     private List<String> pagerFragments = new ArrayList<>();
     private ViewPagerFragmentAdapter fragmentAdapter;
     private Context context;
-
-    private NavigationTabStrip navigationTabStrip;
 
 
     @Nullable
@@ -37,8 +36,9 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragmnet_most_active, container, false);
 
-        navigationTabStrip = (NavigationTabStrip) view.findViewById(R.id.navigation_tab_strip);
         viewPager = (ViewPager) view.findViewById(R.id.viewPager_itemList);
+        recyclerTabLayout = (RecyclerTabLayout) view.findViewById(R.id.recyclerTabLayout);
+        recyclerTabLayout.setIndicatorColor(getResources().getColor(R.color.blue_pressed));
 
         setData();
 
@@ -75,35 +75,9 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setCurrentItem(0);
         viewPager.setOnPageChangeListener(this);
+        recyclerTabLayout.setUpWithViewPager(viewPager);
 
 
-        setViewPagerNavigator();
-
-    }
-
-    private void setViewPagerNavigator(){
-
-        String[] str = new String[pagerFragments.size()];
-        for(int i=0 ; i<pagerFragments.size(); i++ ){
-            str[i] = pagerFragments.get(i);
-        }
-
-        navigationTabStrip.setTitles(str);
-
-        navigationTabStrip.setTabIndex(0, true);
-        navigationTabStrip.setTitleSize(32);
-        navigationTabStrip.setStripColor(Color.RED);
-        navigationTabStrip.setStripWeight(6);
-        navigationTabStrip.setStripFactor(2);
-        navigationTabStrip.setStripType(NavigationTabStrip.StripType.POINT);
-        navigationTabStrip.setStripGravity(NavigationTabStrip.StripGravity.BOTTOM);
-        navigationTabStrip.setTypeface("fonts/typeface.ttf");
-        navigationTabStrip.setCornersRadius(3);
-        navigationTabStrip.setAnimationDuration(300);
-        navigationTabStrip.setInactiveColor(Color.GRAY);
-        navigationTabStrip.setActiveColor(Color.RED);
-        //navigationTabStrip.setOnPageChangeListener();
-        //navigationTabStrip.setOnTabStripSelectedIndexListener(...);
     }
 
 }

@@ -45,4 +45,9 @@ public class ViewPagerFragmentAdapter extends FragmentStatePagerAdapter {
             return 0;
         }
     }
+
+    @Override
+    public CharSequence getPageTitle(int position) {
+        return data.get(position);
+    }
 }
