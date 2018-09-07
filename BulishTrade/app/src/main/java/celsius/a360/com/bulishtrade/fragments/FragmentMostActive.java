@@ -1,18 +1,17 @@
 package celsius.a360.com.bulishtrade.fragments;
 
 import android.content.Context;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.view.ViewPager;
-import android.support.v7.widget.LinearLayoutCompat;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.LinearLayout;
-
 import com.example.dennisshar.bulishtrade.R;
+<<<<<<< HEAD
 import com.nshmura.recyclertablayout.RecyclerTabLayout;
+=======
+>>>>>>> 5c0bc8d98215ff7f58408b602f615eaf57ac53e6
 
 import java.util.ArrayList;
 import java.util.List;
@@ -30,7 +29,10 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
     private ViewPagerFragmentAdapter fragmentAdapter;
     private Context context;
 
+<<<<<<< HEAD
 
+=======
+>>>>>>> 5c0bc8d98215ff7f58408b602f615eaf57ac53e6
     @Nullable
     @Override
     public View onCreateView(LayoutInflater inflater, @Nullable ViewGroup container, Bundle savedInstanceState) {
@@ -78,6 +80,19 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
         recyclerTabLayout.setUpWithViewPager(viewPager);
 
 
+<<<<<<< HEAD
+=======
+        setViewPagerNavigator();
+
+    }
+
+    private void setViewPagerNavigator(){
+
+        String[] str = new String[pagerFragments.size()];
+        for(int i=0 ; i<pagerFragments.size(); i++ ){
+            str[i] = pagerFragments.get(i);
+        }
+>>>>>>> 5c0bc8d98215ff7f58408b602f615eaf57ac53e6
     }
 
 }

@@ -9,15 +9,21 @@
         android:layout_height="wrap_content"
         android:text="Most Active" />
 
+<<<<<<< HEAD
     <com.nshmura.recyclertablayout.RecyclerTabLayout
         android:id="@+id/recyclerTabLayout"
         android:layout_height="24dp"
         android:layout_width="match_parent" />
+=======
+>>>>>>> 5c0bc8d98215ff7f58408b602f615eaf57ac53e6
 
     <android.support.v4.view.ViewPager
         android:id="@+id/viewPager_itemList"
         android:layout_width="match_parent"
+<<<<<<< HEAD
         android:layout_below="@+id/recyclerTabLayout"
+=======
+>>>>>>> 5c0bc8d98215ff7f58408b602f615eaf57ac53e6
         android:layout_height="wrap_content"></android.support.v4.view.ViewPager>
 
 
