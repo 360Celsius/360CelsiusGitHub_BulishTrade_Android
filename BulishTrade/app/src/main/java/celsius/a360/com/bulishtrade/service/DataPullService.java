@@ -41,6 +41,11 @@ public class DataPullService extends IntentService {
     protected void onHandleIntent(@Nullable Intent intent) {
         if (intent.getStringExtra(DataPullServiceConsts.DATA_TYPE_KEY).equalsIgnoreCase(DataPullServiceConsts.GET_MOST_ACTIVE_FROM_SPLASH_KEY)) {
 
+            String mostActiveDataResponce = null;
+            mostActiveDataResponce = networkHTTPRequests.getMosActiveMArketsApiURLResponce();
+            ArrayList<QuoteDataModel> dataModelMostActive = jSONparser.getMostActiveDataModelFromJson(mostActiveDataResponce);
+            helper.bulkInsertDataToMostActiveDataTable(dataModelMostActive);
+
             Intent broadcastIntent = new Intent();
             broadcastIntent.setAction(GET_QOUTES_DATA);
             broadcastIntent.putExtra(DataPullServiceConsts.DATA_TYPE_KEY, DataPullServiceConsts.GET_MOST_ACTIVE_FROM_SPLASH_KEY);
