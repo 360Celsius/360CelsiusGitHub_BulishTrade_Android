@@ -8,7 +8,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import com.example.dennisshar.bulishtrade.R;
-import com.nshmura.recyclertablayout.RecyclerTabLayout;
 
 
 import java.util.ArrayList;
@@ -22,7 +21,6 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
     public final static String TAG = "FragmentMostActive";
 
     private ViewPager viewPager;
-    private RecyclerTabLayout recyclerTabLayout;
     private List<String> pagerFragments = new ArrayList<>();
     private ViewPagerFragmentAdapter fragmentAdapter;
     private Context context;
@@ -33,8 +31,6 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
         View view = inflater.inflate(R.layout.fragmnet_most_active, container, false);
 
         viewPager = (ViewPager) view.findViewById(R.id.viewPager_itemList);
-        recyclerTabLayout = (RecyclerTabLayout) view.findViewById(R.id.recyclerTabLayout);
-        recyclerTabLayout.setIndicatorColor(getResources().getColor(R.color.blue_pressed));
 
         setData();
 
@@ -71,7 +67,6 @@ public class FragmentMostActive extends BaseFragment implements ViewPager.OnPage
         viewPager.setAdapter(fragmentAdapter);
         viewPager.setCurrentItem(0);
         viewPager.setOnPageChangeListener(this);
-        recyclerTabLayout.setUpWithViewPager(viewPager);
 
         setViewPagerNavigator();
 
